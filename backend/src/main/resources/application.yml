@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: liverpool-orders
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/liverpool_orders}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+app:
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
+
+info:
+  app:
+    name: Liverpool Orders API
+    version: 0.0.1
