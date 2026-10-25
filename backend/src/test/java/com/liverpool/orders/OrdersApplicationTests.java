@@ -1,5 +1,5 @@
 
-package main.java.com.liverpool.orders;
+package com.liverpool.orders;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

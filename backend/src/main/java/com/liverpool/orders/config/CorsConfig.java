@@ -1,5 +1,5 @@
 
-package main.java.com.liverpool.orders.config;
+package com.liverpool.orders.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

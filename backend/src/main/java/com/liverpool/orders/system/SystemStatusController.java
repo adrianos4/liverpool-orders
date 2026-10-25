@@ -1,5 +1,5 @@
 
-package main.java.com.liverpool.orders.system;
+package com.liverpool.orders.system;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
