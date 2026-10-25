@@ -1,15 +1,13 @@
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #202632;
-  background: #f6f7f9;
+  color: #202735;
+  background: #f6f7fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-optical-sizing: auto;
   font-weight: 400;
 }
@@ -26,8 +24,8 @@ body {
 
 button,
 input,
-textarea,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -37,14 +35,24 @@ button {
 
 button:disabled {
   cursor: not-allowed;
-  opacity: 0.65;
+  opacity: 0.55;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+input,
+select,
+button {
+  outline-color: #315bd6;
 }
 
-#root {
-  min-height: 100vh;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgb(49 91 214 / 25%);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: #fff;
+  background: #315bd6;
 }
