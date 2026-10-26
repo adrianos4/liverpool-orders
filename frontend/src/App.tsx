@@ -565,11 +565,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    void loadOrders();
+    void Promise.resolve().then(() => loadOrders());
   }, [loadOrders]);
 
   useEffect(() => {
-    void loadCustomers();
+    void Promise.resolve().then(() =>loadCustomers());
   }, [loadCustomers]);
 
   const metrics = useMemo(

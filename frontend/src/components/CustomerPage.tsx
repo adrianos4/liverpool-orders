@@ -70,7 +70,7 @@ export default function CustomersPage({
   }, [search, page]);
 
   useEffect(() => {
-    void loadCustomers();
+    void Promise.resolve().then(() =>loadCustomers());
   }, [loadCustomers]);
 
   function openCreateForm() {
@@ -452,7 +452,7 @@ export default function CustomersPage({
                   maxLength={100}
                   value={form.firstName}
                   onChange={(event) => updateField("firstName", event.target.value)}
-                  placeholder="Ej. Adrián"
+                  placeholder="Ej. John"
                 />
               </label>
 
@@ -463,7 +463,7 @@ export default function CustomersPage({
                   maxLength={100}
                   value={form.lastName}
                   onChange={(event) => updateField("lastName", event.target.value)}
-                  placeholder="Ej. Rosas"
+                  placeholder="Ej. Doe"
                 />
               </label>
 
@@ -476,7 +476,7 @@ export default function CustomersPage({
                   onChange={(event) =>
                     updateField("motherLastName", event.target.value)
                   }
-                  placeholder="Ej. García"
+                  placeholder="Ej. N"
                 />
               </label>
 
