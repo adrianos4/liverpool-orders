@@ -1,8 +1,9 @@
 
 import type { SystemStatus } from "../types/system";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080"
+).replace(/\/$/, "");
 
 export async function getSystemStatus(): Promise<SystemStatus> {
   const response = await fetch(
