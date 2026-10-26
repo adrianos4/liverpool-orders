@@ -94,9 +94,7 @@ docker compose logs -f mongodb
 
 The MongoDB connection string used by the backend is:
 
-```text
 mongodb://localhost:27017/liverpool_orders
-```
 
 If the Docker Compose configuration uses a different MongoDB service name or connection string, use the values defined in that configuration.
 
@@ -163,6 +161,20 @@ npm run build
 ## API Documentation
 
 The backend exposes a REST API under the `/api/v1` prefix.
+
+
+### Interactive API Documentation
+
+The backend uses OpenAPI 3 and Swagger UI to document and explore the REST API.
+
+Once the backend is running, access:
+
+- **Swagger UI:** http://localhost:8080/swagger-ui/index.html
+- **OpenAPI JSON:** http://localhost:8080/v3/api-docs
+
+Swagger UI allows developers to inspect the available endpoints, review request and response schemas, and execute API operations against the running backend.
+
+The OpenAPI document is generated from the backend controllers and their request and response types.
 
 ### Customer Endpoints
 
