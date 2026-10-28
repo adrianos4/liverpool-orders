@@ -307,6 +307,68 @@ Run these commands to check for backend test failures and frontend compilation o
 - Verify the API base URL configured in the frontend.
 - Check that the backend CORS configuration permits requests from the frontend development origin.
 
+## Production Deployment
+
+The application can be deployed using the following architecture:
+
+- **Frontend:** Vercel
+- **Backend:** Render using Docker
+- **Database:** MongoDB Atlas
+
+### Frontend Configuration
+
+Configure the following environment variable in the frontend hosting platform:
+
+- `VITE_API_BASE_URL`: Public URL of the deployed backend API, without a trailing slash.
+
+The frontend must be rebuilt after changing this variable because Vite embeds environment variables during the build.
+
+### Backend Configuration
+
+Configure these environment variables in the backend hosting platform:
+
+- `MONGODB_URI`: MongoDB Atlas connection string for the application database.
+- `FRONTEND_ORIGIN`: Exact public origin of the deployed frontend.
+- `PORT`: Listening port supplied by the hosting platform.
+
+Do not commit production credentials or database connection strings.
+
+### Health Checks
+
+The backend exposes the following endpoints:
+
+- `/api/v1/system/status`: Application and database connectivity status.
+- `/actuator/health`: Spring Boot Actuator health endpoint.
+- `/swagger-ui/index.html`: Interactive API documentation.
+- `/v3/api-docs`: OpenAPI specification.
+
+### Local Docker Build
+
+From the repository root, build the backend image:
+
+```bash
+docker build -t liverpool-orders-api:local ./backend
+```
+
+MongoDB for local development can be started with:
+
+```bash
+docker compose up -d mongodb
+```
+
+### Deployment Verification
+
+After deployment:
+
+1. Confirm that the backend health endpoint responds successfully.
+2. Confirm that the database connection is healthy.
+3. Open the deployed frontend.
+4. Create and retrieve a customer.
+5. Create an order associated with that customer.
+6. Update the order and verify the changes persist.
+7. Verify that invalid input and business-rule errors are handled correctly.
+8. Confirm that the browser reports no unexpected API or CORS errors.
+
 ## Stopping the Application
 
 Stop the frontend and backend development servers using `Ctrl+C` in their respective terminals.
